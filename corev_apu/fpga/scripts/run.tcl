@@ -51,7 +51,11 @@ set_property include_dirs { \
 
 source scripts/add_sources.tcl
 
-set_property top ${project}_xilinx [current_fileset]
+if {$::env(BOARD) eq "zc706"} {
+      set_property top custom_inst_cva6_with_reg [current_fileset]
+} else {
+      set_property top ${project}_xilinx [current_fileset]
+}
 
 if {$::env(BOARD) eq "genesys2"} {
     read_verilog -sv {src/genesysii.svh ../../vendor/pulp-platform/common_cells/include/common_cells/registers.svh}

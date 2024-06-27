@@ -47,6 +47,8 @@ $(warning must set CVA6_REPO_DIR to point at the root of CVA6 sources -- doing i
 export CVA6_REPO_DIR = $(abspath $(root-dir))
 endif
 
+$(warning please make sure to set expected running frequency in environment variable!)
+
 ifndef FREQ
 $(warning must set expected running frequency -- setting it to 50MHz for you)
 export FREQ = 50MHz
@@ -697,7 +699,9 @@ src_flist = $(shell \
 	    TARGET_CFG=$(TARGET_CFG) \
 	    HPDCACHE_TARGET_CFG=$(HPDCACHE_TARGET_CFG) \
 	    HPDCACHE_DIR=$(HPDCACHE_DIR) \
+			FREQ=$(FREQ)\
 	    python3 util/flist_flattener.py core/Flist.cva6)
+# here can be fixed. FREQ.
 fpga_filter := $(addprefix $(root-dir), corev_apu/bootrom/bootrom.sv)
 fpga_filter += $(addprefix $(root-dir), core/include/instr_tracer_pkg.sv)
 fpga_filter += $(addprefix $(root-dir), src/util/ex_trace_item.sv)
@@ -714,6 +718,12 @@ fpga: $(ariane_pkg) $(src) $(fpga_src) $(uart_src) $(src_flist)
 	@echo read_verilog -sv {$(filter-out $(fpga_filter), $(src_flist))}		>> corev_apu/fpga/scripts/add_sources.tcl
 	@echo read_verilog -sv {$(filter-out $(fpga_filter), $(src))} 	   >> corev_apu/fpga/scripts/add_sources.tcl
 	@echo read_verilog -sv {$(fpga_src)}   >> corev_apu/fpga/scripts/add_sources.tcl
+
+	@echo add_files {$(uart_src)}    > corev_apu/fpga/scripts/import_cva6_add_sources.tcl
+	@echo add_files {$(ariane_pkg)} >> corev_apu/fpga/scripts/import_cva6_add_sources.tcl
+	@echo add_files {$(filter-out $(fpga_filter), $(src_flist))}		>> corev_apu/fpga/scripts/import_cva6_add_sources.tcl
+	@echo add_files {$(filter-out $(fpga_filter), $(src))} 	   >> corev_apu/fpga/scripts/import_cva6_add_sources.tcl
+	@echo add_files {$(fpga_src)}   >> corev_apu/fpga/scripts/import_cva6_add_sources.tcl
 	@echo "[FPGA] Generate Bitstream"
 	cd corev_apu/fpga && make BOARD=$(BOARD) XILINX_PART=$(XILINX_PART) XILINX_BOARD=$(XILINX_BOARD) CLK_PERIOD_NS=$(CLK_PERIOD_NS)
 
