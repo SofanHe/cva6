@@ -7,14 +7,14 @@
 // ==============================================================
 `timescale 1 ns / 1 ps
 
-module t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0(
+(* use_dsp = "yes" *) module t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0(
     input clk,
     input rst,
     input ce,
     input  [8 - 1:0] in0,
-    input  [11 - 1:0] in1,
-    input  [16 - 1:0] in2,
-    output [20 - 1:0]  dout);
+    input  [7 - 1:0] in1,
+    input  [17 - 1:0] in2,
+    output [17 - 1:0]  dout);
 
 wire signed [25 - 1:0]     a;
 wire signed [18 - 1:0]     b;
@@ -26,7 +26,7 @@ reg  signed [25 - 1:0]     a_reg;
 reg  signed [18 - 1:0]     b_reg;
 reg  signed [48 - 1:0]     p_reg;
 
-assign a  = $unsigned(in0);
+assign a  = $signed(in0);
 assign b  = $unsigned(in1);
 assign c  = $signed(in2);
 
@@ -46,7 +46,7 @@ assign dout = p_reg;
 
 endmodule
 `timescale 1 ns / 1 ps
-module t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1(
+module t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1(
     clk,
     reset,
     ce,
@@ -71,7 +71,7 @@ output[dout_WIDTH - 1:0] dout;
 
 
 
-t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0 t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U(
+t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0 t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U(
     .clk( clk ),
     .rst( reset ),
     .ce( ce ),
