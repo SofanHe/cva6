@@ -45,13 +45,9 @@ void cag2rgb(uint64_t *YUVin, uint64_t *RGBout) {
     int32_t u = U;
     int32_t v = V;
 
-    int32_t y1192 = 1192 * (y - 16);
-    int32_t uv448 = 448 * (u - 128);
-    int32_t uv128 = 128 * (v - 128);
-
-    int32_t r = (y1192 + uv448) >> 10;
-    int32_t g = (y1192 - uv128 - uv448) >> 10;
-    int32_t b = (y1192 + uv128) >> 10;
+    int32_t r = y + ((360*(v-128)) >> 8);
+		int32_t g = y - (( 88*(u-128) + 184*(v-128) ) >> 8);
+		int32_t b = y + ((455*(u-128)) >> 8);
 
     uint8_t R =
         (r < 0) ? ((uint8_t)0) : ((r > 255) ? (uint8_t)255 : (uint8_t)r);

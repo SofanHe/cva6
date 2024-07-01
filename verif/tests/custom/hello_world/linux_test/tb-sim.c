@@ -44,8 +44,8 @@ int main() {
   unsigned long long yuv[3] = {0x663388aa55ccee77, 0xddddffff00221144,
                                0x1133995577bb99bb};
   unsigned long long yuv_imm[3] = {0, 0, 0};
-  unsigned long long rgb[3] = {0x3b21623c51a83e81, 0xf1ffd3ff003a001d,
-                               0x7dcf91c3d0c1ffd1};
+  unsigned long long rgb[3] = {0x000460699fe1d3ff, 0xffffffff00000000,
+                               0x002e107e99abffff};
   unsigned long long rgb_imm[3] = {0, 0, 0};
 
   nv2cag(y1, y2, yuv_imm);

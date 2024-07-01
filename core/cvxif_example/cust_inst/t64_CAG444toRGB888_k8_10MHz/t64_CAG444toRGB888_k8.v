@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7k325t-ffg900-2,HLS_INPUT_CLOCK=100.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.403833,HLS_SYN_LAT=20,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=1067,HLS_SYN_LUT=3156,HLS_VERSION=2023_2}" *)
+(* CORE_GENERATION_INFO="t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z010-clg400-2,HLS_INPUT_CLOCK=6.667000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=4.396000,HLS_SYN_LAT=22,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=1748,HLS_SYN_LUT=3179,HLS_VERSION=2023_2}" *)
 
 module t64_CAG444toRGB888_k8 (
         ap_clk,
@@ -67,7 +67,7 @@ reg   [63:0] YUVin_read_reg_112;
 reg   [63:0] YUVin_read_1_reg_117;
 wire   [191:0] YUV192_fu_69_p4;
 reg   [191:0] YUV192_reg_122;
-wire   [63:0] trunc_ln79_fu_81_p1;
+wire   [63:0] trunc_ln83_fu_81_p1;
 reg   [63:0] p_s_reg_132;
 reg   [63:0] p_0_reg_137;
 wire    grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63_ap_start;
@@ -207,7 +207,7 @@ always @ (*) begin
         end else if ((1'b1 == ap_CS_fsm_state7)) begin
             RGBout_din_int_regslice = p_s_reg_132;
         end else if ((1'b1 == ap_CS_fsm_state6)) begin
-            RGBout_din_int_regslice = trunc_ln79_fu_81_p1;
+            RGBout_din_int_regslice = trunc_ln83_fu_81_p1;
         end else begin
             RGBout_din_int_regslice = 'bx;
         end
@@ -447,6 +447,6 @@ end
 
 assign grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63_ap_start = grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63_ap_start_reg;
 
-assign trunc_ln79_fu_81_p1 = grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63_RGB192_out[63:0];
+assign trunc_ln83_fu_81_p1 = grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63_RGB192_out[63:0];
 
 endmodule //t64_CAG444toRGB888_k8
