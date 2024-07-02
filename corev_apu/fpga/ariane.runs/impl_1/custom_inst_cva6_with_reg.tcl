@@ -121,168 +121,58 @@ set_msg_config -id {Synth 8-638} -limit 10000
 set_msg_config  -id {[Synth 8-5858]}  -new_severity {INFO} 
 
 OPTRACE "impl_1" START { ROLLUP_1 }
-OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
-start_step init_design
-set ACTIVE_STEP init_design
+OPTRACE "Phase: Write Bitstream" START { ROLLUP_AUTO }
+OPTRACE "write_bitstream setup" START { }
+start_step write_bitstream
+set ACTIVE_STEP write_bitstream
 set rc [catch {
-  create_msg_db init_design.pb
+  create_msg_db write_bitstream.pb
   set_param checkpoint.writeSynthRtdsInDcp 1
   set_param chipscope.maxJobs 1
-  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1113659-sofanserver/incrSyn
+  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-29900-sofanserver/incrSyn
   set_param runs.launchOptions { -jobs 1  }
-  reset_param project.defaultXPMLibraries 
-  open_checkpoint /home/sofan/CVA6-ckf/cva6/corev_apu/fpga/ariane.runs/impl_1/custom_inst_cva6_with_reg.dcp
+  open_checkpoint custom_inst_cva6_with_reg_routed.dcp
   set_property webtalk.parent_dir /home/sofan/CVA6-ckf/cva6/corev_apu/fpga/ariane.cache/wt [current_project]
-  set_property parent.project_path /home/sofan/CVA6-ckf/cva6/corev_apu/fpga/ariane.xpr [current_project]
-  set_property ip_output_repo /home/sofan/CVA6-ckf/cva6/corev_apu/fpga/ariane.cache/ip [current_project]
-  set_property ip_cache_permissions {read write} [current_project]
-OPTRACE "init_design_reports" START { REPORT }
-OPTRACE "init_design_reports" END { }
-OPTRACE "init_design_write_hwdef" START { }
-OPTRACE "init_design_write_hwdef" END { }
-  close_msg_db -file init_design.pb
+OPTRACE "Write Bitstream: pre hook" START { }
+  set src_rc [catch { 
+    puts "source ../../scripts/fix_error_write_bitstream.tcl"
+    source ../../scripts/fix_error_write_bitstream.tcl
+  } _RESULT] 
+  if {$src_rc} { 
+    set tool_flow [get_property -quiet TOOL_FLOW [current_project -quiet]]
+    if { $tool_flow eq {SDx} } { 
+      send_gid_msg -id 2 -ssname VPL_TCL -severity ERROR $_RESULT
+      send_gid_msg -id 3 -ssname VPL_TCL -severity ERROR "sourcing script ../../scripts/fix_error_write_bitstream.tcl failed"
+    } else {
+      send_msg_id runtcl-1 status "$_RESULT"
+      send_msg_id runtcl-2 status "sourcing script ../../scripts/fix_error_write_bitstream.tcl failed"
+    }
+    return -code error
+  }
+OPTRACE "Write Bitstream: pre hook" END { }
+set_property TOP custom_inst_cva6_with_reg [current_fileset]
+OPTRACE "read constraints: write_bitstream" START { }
+OPTRACE "read constraints: write_bitstream" END { }
+  catch { write_mem_info -force -no_partial_mmi custom_inst_cva6_with_reg.mmi }
+OPTRACE "write_bitstream setup" END { }
+OPTRACE "write_bitstream" START { }
+  write_bitstream -force custom_inst_cva6_with_reg.bit 
+OPTRACE "write_bitstream" END { }
+OPTRACE "write_bitstream misc" START { }
+OPTRACE "read constraints: write_bitstream_post" START { }
+OPTRACE "read constraints: write_bitstream_post" END { }
+  catch {write_debug_probes -quiet -force custom_inst_cva6_with_reg}
+  catch {file copy -force custom_inst_cva6_with_reg.ltx debug_nets.ltx}
+  close_msg_db -file write_bitstream.pb
 } RESULT]
 if {$rc} {
-  step_failed init_design
+  step_failed write_bitstream
   return -code error $RESULT
 } else {
-  end_step init_design
+  end_step write_bitstream
   unset ACTIVE_STEP 
 }
 
-OPTRACE "Phase: Init Design" END { }
-OPTRACE "Phase: Opt Design" START { ROLLUP_AUTO }
-start_step opt_design
-set ACTIVE_STEP opt_design
-set rc [catch {
-  create_msg_db opt_design.pb
-OPTRACE "read constraints: opt_design" START { }
-OPTRACE "read constraints: opt_design" END { }
-OPTRACE "opt_design" START { }
-  opt_design 
-OPTRACE "opt_design" END { }
-OPTRACE "read constraints: opt_design_post" START { }
-OPTRACE "read constraints: opt_design_post" END { }
-OPTRACE "opt_design reports" START { REPORT }
-  create_report "impl_1_opt_report_drc_0" "report_drc -file custom_inst_cva6_with_reg_drc_opted.rpt -pb custom_inst_cva6_with_reg_drc_opted.pb -rpx custom_inst_cva6_with_reg_drc_opted.rpx"
-OPTRACE "opt_design reports" END { }
-OPTRACE "Opt Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force custom_inst_cva6_with_reg_opt.dcp
-OPTRACE "Opt Design: write_checkpoint" END { }
-  close_msg_db -file opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed opt_design
-  return -code error $RESULT
-} else {
-  end_step opt_design
-  unset ACTIVE_STEP 
-}
-
-OPTRACE "Phase: Opt Design" END { }
-OPTRACE "Phase: Place Design" START { ROLLUP_AUTO }
-start_step place_design
-set ACTIVE_STEP place_design
-set rc [catch {
-  create_msg_db place_design.pb
-OPTRACE "read constraints: place_design" START { }
-OPTRACE "read constraints: place_design" END { }
-  if { [llength [get_debug_cores -quiet] ] > 0 }  { 
-OPTRACE "implement_debug_core" START { }
-    implement_debug_core 
-OPTRACE "implement_debug_core" END { }
-  } 
-OPTRACE "place_design" START { }
-  place_design -directive RuntimeOptimized
-OPTRACE "place_design" END { }
-OPTRACE "read constraints: place_design_post" START { }
-OPTRACE "read constraints: place_design_post" END { }
-OPTRACE "place_design reports" START { REPORT }
-  create_report "impl_1_place_report_io_0" "report_io -file custom_inst_cva6_with_reg_io_placed.rpt"
-  create_report "impl_1_place_report_utilization_0" "report_utilization -file custom_inst_cva6_with_reg_utilization_placed.rpt -pb custom_inst_cva6_with_reg_utilization_placed.pb"
-  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file custom_inst_cva6_with_reg_control_sets_placed.rpt"
-OPTRACE "place_design reports" END { }
-OPTRACE "Place Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force custom_inst_cva6_with_reg_placed.dcp
-OPTRACE "Place Design: write_checkpoint" END { }
-  close_msg_db -file place_design.pb
-} RESULT]
-if {$rc} {
-  step_failed place_design
-  return -code error $RESULT
-} else {
-  end_step place_design
-  unset ACTIVE_STEP 
-}
-
-OPTRACE "Phase: Place Design" END { }
-OPTRACE "Phase: Physical Opt Design" START { ROLLUP_AUTO }
-start_step phys_opt_design
-set ACTIVE_STEP phys_opt_design
-set rc [catch {
-  create_msg_db phys_opt_design.pb
-OPTRACE "read constraints: phys_opt_design" START { }
-OPTRACE "read constraints: phys_opt_design" END { }
-OPTRACE "phys_opt_design" START { }
-  phys_opt_design 
-OPTRACE "phys_opt_design" END { }
-OPTRACE "read constraints: phys_opt_design_post" START { }
-OPTRACE "read constraints: phys_opt_design_post" END { }
-OPTRACE "phys_opt_design report" START { REPORT }
-OPTRACE "phys_opt_design report" END { }
-OPTRACE "Post-Place Phys Opt Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force custom_inst_cva6_with_reg_physopt.dcp
-OPTRACE "Post-Place Phys Opt Design: write_checkpoint" END { }
-  close_msg_db -file phys_opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed phys_opt_design
-  return -code error $RESULT
-} else {
-  end_step phys_opt_design
-  unset ACTIVE_STEP 
-}
-
-OPTRACE "Phase: Physical Opt Design" END { }
-OPTRACE "Phase: Route Design" START { ROLLUP_AUTO }
-start_step route_design
-set ACTIVE_STEP route_design
-set rc [catch {
-  create_msg_db route_design.pb
-OPTRACE "read constraints: route_design" START { }
-OPTRACE "read constraints: route_design" END { }
-OPTRACE "route_design" START { }
-  route_design -directive RuntimeOptimized
-OPTRACE "route_design" END { }
-OPTRACE "read constraints: route_design_post" START { }
-OPTRACE "read constraints: route_design_post" END { }
-OPTRACE "route_design reports" START { REPORT }
-  create_report "impl_1_route_report_drc_0" "report_drc -file custom_inst_cva6_with_reg_drc_routed.rpt -pb custom_inst_cva6_with_reg_drc_routed.pb -rpx custom_inst_cva6_with_reg_drc_routed.rpx"
-  create_report "impl_1_route_report_methodology_0" "report_methodology -file custom_inst_cva6_with_reg_methodology_drc_routed.rpt -pb custom_inst_cva6_with_reg_methodology_drc_routed.pb -rpx custom_inst_cva6_with_reg_methodology_drc_routed.rpx"
-  create_report "impl_1_route_report_power_0" "report_power -file custom_inst_cva6_with_reg_power_routed.rpt -pb custom_inst_cva6_with_reg_power_summary_routed.pb -rpx custom_inst_cva6_with_reg_power_routed.rpx"
-  create_report "impl_1_route_report_route_status_0" "report_route_status -file custom_inst_cva6_with_reg_route_status.rpt -pb custom_inst_cva6_with_reg_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -report_unconstrained -file custom_inst_cva6_with_reg_timing_summary_routed.rpt -pb custom_inst_cva6_with_reg_timing_summary_routed.pb -rpx custom_inst_cva6_with_reg_timing_summary_routed.rpx -warn_on_violation "
-  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file custom_inst_cva6_with_reg_incremental_reuse_routed.rpt"
-  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file custom_inst_cva6_with_reg_clock_utilization_routed.rpt"
-  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file custom_inst_cva6_with_reg_bus_skew_routed.rpt -pb custom_inst_cva6_with_reg_bus_skew_routed.pb -rpx custom_inst_cva6_with_reg_bus_skew_routed.rpx"
-OPTRACE "route_design reports" END { }
-OPTRACE "Route Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force custom_inst_cva6_with_reg_routed.dcp
-OPTRACE "Route Design: write_checkpoint" END { }
-OPTRACE "route_design misc" START { }
-  close_msg_db -file route_design.pb
-} RESULT]
-if {$rc} {
-OPTRACE "route_design write_checkpoint" START { CHECKPOINT }
-OPTRACE "route_design write_checkpoint" END { }
-  write_checkpoint -force custom_inst_cva6_with_reg_routed_error.dcp
-  step_failed route_design
-  return -code error $RESULT
-} else {
-  end_step route_design
-  unset ACTIVE_STEP 
-}
-
-OPTRACE "route_design misc" END { }
-OPTRACE "Phase: Route Design" END { }
+OPTRACE "write_bitstream misc" END { }
+OPTRACE "Phase: Write Bitstream" END { }
 OPTRACE "impl_1" END { }

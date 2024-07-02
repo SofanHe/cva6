@@ -3,26 +3,26 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Tue Jun 25 15:57:54 2024
-# Process ID: 1114748
+# Start of session at: Tue Jul  2 13:31:47 2024
+# Process ID: 31126
 # Current directory: /home/sofan/CVA6-ckf/cva6/corev_apu/fpga/ariane.runs/synth_1
 # Command line: vivado -log custom_inst_cva6_with_reg.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source custom_inst_cva6_with_reg.tcl
 # Log file: /home/sofan/CVA6-ckf/cva6/corev_apu/fpga/ariane.runs/synth_1/custom_inst_cva6_with_reg.vds
 # Journal file: /home/sofan/CVA6-ckf/cva6/corev_apu/fpga/ariane.runs/synth_1/vivado.jou
-# Running On: sofanserver, OS: Linux, CPU Frequency: 2600.000 MHz, CPU Physical cores: 6, Host memory: 84259 MB
+# Running On: sofanserver, OS: Linux, CPU Frequency: 1200.000 MHz, CPU Physical cores: 6, Host memory: 118081 MB
 #-----------------------------------------------------------
 source custom_inst_cva6_with_reg.tcl -notrace
-create_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1363.594 ; gain = 51.836 ; free physical = 42374 ; free virtual = 77584
-Command: synth_design -top custom_inst_cva6_with_reg -part xc7z045ffg900-2 -global_retiming on
+create_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1363.562 ; gain = 48.836 ; free physical = 103082 ; free virtual = 114522
+Command: synth_design -top custom_inst_cva6_with_reg -part xc7z045ffg900-2 -global_retiming on -mode out_of_context
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z045'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z045'
 INFO: [Device 21-403] Loading part xc7z045ffg900-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 1115093
+INFO: [Synth 8-7075] Helper process launched with PID 31464
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2192.797 ; gain = 403.715 ; free physical = 41266 ; free virtual = 76476
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2192.734 ; gain = 403.715 ; free physical = 101976 ; free virtual = 113416
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-11067] parameter 'NbInstr' declared inside package 'cvxif_instr_pkg' shall be treated as localparam [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/include/cvxif_instr_pkg.sv:35]
 WARNING: [Synth 8-11067] parameter 'CoproInstr' declared inside package 'cvxif_instr_pkg' shall be treated as localparam [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/include/cvxif_instr_pkg.sv:36]
@@ -688,19 +688,30 @@ INFO: [Synth 8-6155] done synthesizing module 't64_nv12toCAG444_k8_regslice_forw
 INFO: [Synth 8-6155] done synthesizing module 't64_nv12toCAG444_k8' (0#1) [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_nv12toCAG444_k8_150MHz/t64_nv12toCAG444_k8.v:9]
 INFO: [Synth 8-6157] synthesizing module 't64_CAG444toRGB888_k8' [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8.v:9]
 INFO: [Synth 8-6157] synthesizing module 't64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1' [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1.v:9]
-WARNING: [Synth 8-5974] attribute "use_dsp48" has been deprecated, please use "use_dsp" instead 
-WARNING: [Synth 8-5974] attribute "use_dsp48" has been deprecated, please use "use_dsp" instead 
-WARNING: [Synth 8-5974] attribute "use_dsp48" has been deprecated, please use "use_dsp" instead 
-INFO: [Synth 8-6157] synthesizing module 't64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1' [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1.v:49]
+INFO: [Synth 8-6157] synthesizing module 't64_CAG444toRGB888_k8_mul_8s_9ns_17_1_1' [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mul_8s_9ns_17_1_1.v:5]
+	Parameter ID bound to: 1 - type: integer 
+	Parameter NUM_STAGE bound to: 1 - type: integer 
+	Parameter din0_WIDTH bound to: 8 - type: integer 
+	Parameter din1_WIDTH bound to: 9 - type: integer 
+	Parameter dout_WIDTH bound to: 17 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 't64_CAG444toRGB888_k8_mul_8s_9ns_17_1_1' (0#1) [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mul_8s_9ns_17_1_1.v:5]
+INFO: [Synth 8-6157] synthesizing module 't64_CAG444toRGB888_k8_mul_8s_10ns_18_1_1' [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mul_8s_10ns_18_1_1.v:5]
+	Parameter ID bound to: 1 - type: integer 
+	Parameter NUM_STAGE bound to: 1 - type: integer 
+	Parameter din0_WIDTH bound to: 8 - type: integer 
+	Parameter din1_WIDTH bound to: 10 - type: integer 
+	Parameter dout_WIDTH bound to: 18 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 't64_CAG444toRGB888_k8_mul_8s_10ns_18_1_1' (0#1) [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mul_8s_10ns_18_1_1.v:5]
+INFO: [Synth 8-6157] synthesizing module 't64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1' [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1.v:49]
 	Parameter ID bound to: 1 - type: integer 
 	Parameter NUM_STAGE bound to: 4 - type: integer 
 	Parameter din0_WIDTH bound to: 8 - type: integer 
-	Parameter din1_WIDTH bound to: 11 - type: integer 
-	Parameter din2_WIDTH bound to: 16 - type: integer 
-	Parameter dout_WIDTH bound to: 20 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 't64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0' [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1.v:10]
-INFO: [Synth 8-6155] done synthesizing module 't64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0' (0#1) [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1.v:10]
-INFO: [Synth 8-6155] done synthesizing module 't64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1' (0#1) [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1.v:49]
+	Parameter din1_WIDTH bound to: 7 - type: integer 
+	Parameter din2_WIDTH bound to: 17 - type: integer 
+	Parameter dout_WIDTH bound to: 17 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 't64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0' [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 't64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0' (0#1) [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1.v:10]
+INFO: [Synth 8-6155] done synthesizing module 't64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1' (0#1) [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1.v:49]
 INFO: [Synth 8-6157] synthesizing module 't64_CAG444toRGB888_k8_flow_control_loop_pipe_sequential_init' [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_flow_control_loop_pipe_sequential_init.v:11]
 INFO: [Synth 8-6155] done synthesizing module 't64_CAG444toRGB888_k8_flow_control_loop_pipe_sequential_init' (0#1) [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_flow_control_loop_pipe_sequential_init.v:11]
 INFO: [Synth 8-6155] done synthesizing module 't64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1' (0#1) [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1.v:9]
@@ -4865,6 +4876,7 @@ WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic 
 INFO: [Synth 8-6155] done synthesizing module 'instr_queue' (0#1) [/home/sofan/CVA6-ckf/cva6/core/frontend/instr_queue.sv:46]
 INFO: [Synth 8-6155] done synthesizing module 'frontend' (0#1) [/home/sofan/CVA6-ckf/cva6/core/frontend/frontend.sv:18]
 INFO: [Synth 8-6157] synthesizing module 'id_stage' [/home/sofan/CVA6-ckf/cva6/core/id_stage.sv:16]
+INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 	Parameter CVA6Cfg[XLEN] bound to: 32'b00000000000000000000000001000000 
 	Parameter CVA6Cfg[VLEN] bound to: 32'b00000000000000000000000001000000 
 	Parameter CVA6Cfg[PLEN] bound to: 32'b00000000000000000000000000111000 
@@ -5091,7 +5103,6 @@ INFO: [Synth 8-6157] synthesizing module 'id_stage' [/home/sofan/CVA6-ckf/cva6/c
 	Parameter INTERRUPTS[M_TIMER] bound to: 64'b1000000000000000000000000000000000000000000000000000000000000111 
 	Parameter INTERRUPTS[S_EXT] bound to: 64'b1000000000000000000000000000000000000000000000000000000000001001 
 	Parameter INTERRUPTS[M_EXT] bound to: 64'b1000000000000000000000000000000000000000000000000000000000001011 
-INFO: [Synth 8-6157] synthesizing module 'compressed_decoder' [/home/sofan/CVA6-ckf/cva6/core/compressed_decoder.sv:22]
 	Parameter CVA6Cfg[XLEN] bound to: 32'b00000000000000000000000001000000 
 	Parameter CVA6Cfg[VLEN] bound to: 32'b00000000000000000000000001000000 
 	Parameter CVA6Cfg[PLEN] bound to: 32'b00000000000000000000000000111000 
@@ -5323,8 +5334,6 @@ INFO: [Synth 8-294] found qualifier unique on case statement: implementing as pa
 INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/sofan/CVA6-ckf/cva6/core/compressed_decoder.sv:744]
 INFO: [Synth 8-226] default block is never used [/home/sofan/CVA6-ckf/cva6/core/compressed_decoder.sv:744]
 INFO: [Synth 8-6155] done synthesizing module 'compressed_decoder' (0#1) [/home/sofan/CVA6-ckf/cva6/core/compressed_decoder.sv:22]
-INFO: [Synth 8-6157] synthesizing module 'decoder' [/home/sofan/CVA6-ckf/cva6/core/decoder.sv:22]
-INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 	Parameter CVA6Cfg[XLEN] bound to: 32'b00000000000000000000000001000000 
 	Parameter CVA6Cfg[VLEN] bound to: 32'b00000000000000000000000001000000 
 	Parameter CVA6Cfg[PLEN] bound to: 32'b00000000000000000000000000111000 
@@ -6005,13 +6014,11 @@ INFO: [Synth 8-6155] done synthesizing module 'id_stage' (0#1) [/home/sofan/CVA6
 	Parameter ExtPrio bound to: 1'b1 
 	Parameter AxiVldRdy bound to: 1'b1 
 INFO: [Synth 8-6155] done synthesizing module 'rr_arb_tree__parameterized6' (0#1) [/home/sofan/CVA6-ckf/cva6/vendor/pulp-platform/common_cells/src/rr_arb_tree.sv:47]
+INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 	Parameter NumIn bound to: 32'b00000000000000000000000000001101 
 	Parameter DataWidth bound to: 32'b00000000000000000000000001000000 
 	Parameter ExtPrio bound to: 1'b1 
 	Parameter AxiVldRdy bound to: 1'b1 
-INFO: [Synth 8-6155] done synthesizing module 'rr_arb_tree__parameterized7' (0#1) [/home/sofan/CVA6-ckf/cva6/vendor/pulp-platform/common_cells/src/rr_arb_tree.sv:47]
-INFO: [Synth 8-6155] done synthesizing module 'scoreboard' (0#1) [/home/sofan/CVA6-ckf/cva6/core/scoreboard.sv:15]
-INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 	Parameter CVA6Cfg[XLEN] bound to: 32'b00000000000000000000000001000000 
 	Parameter CVA6Cfg[VLEN] bound to: 32'b00000000000000000000000001000000 
 	Parameter CVA6Cfg[PLEN] bound to: 32'b00000000000000000000000000111000 
@@ -10255,9 +10262,6 @@ INFO: [Synth 8-155] case statement is not full and has no default [/home/sofan/C
 	Parameter AddrWidth bound to: 32'b00000000000000000000000001000000 
 WARNING: [Synth 8-6014] Unused sequential element read_pointer_q_reg was removed.  [/home/sofan/CVA6-ckf/cva6/vendor/pulp-platform/common_cells/src/fifo_v3.sv:137]
 WARNING: [Synth 8-6014] Unused sequential element read_pointer_q_reg was removed.  [/home/sofan/CVA6-ckf/cva6/vendor/pulp-platform/common_cells/src/fifo_v3.sv:137]
-WARNING: [Synth 8-3936] Found unconnected internal register 'newSecond_reg_658_reg' and it is trimmed from '20' to '18' bits. [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1.v:357]
-WARNING: [Synth 8-3936] Found unconnected internal register 'add_ln68_reg_663_reg' and it is trimmed from '20' to '18' bits. [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1.v:345]
-WARNING: [Synth 8-3936] Found unconnected internal register 'add_ln66_reg_653_reg' and it is trimmed from '20' to '18' bits. [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1.v:344]
 WARNING: [Synth 8-7137] Register result_we_q_reg in module cvxif_example_coprocessor has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cvxif_example_coprocessor.sv:297]
 WARNING: [Synth 8-7137] Register instr_id_q_reg in module cvxif_example_coprocessor has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cvxif_example_coprocessor.sv:298]
 WARNING: [Synth 8-7137] Register vec_rdata_q_reg[1] in module cvxif_example_coprocessor has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cvxif_example_coprocessor.sv:269]
@@ -10431,18 +10435,18 @@ WARNING: [Synth 8-7129] Port slv_port\.w_user[51] in module axi_slv_break is eit
 WARNING: [Synth 8-7129] Port slv_port\.w_user[50] in module axi_slv_break is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2614.016 ; gain = 824.934 ; free physical = 40815 ; free virtual = 76036
+Finished RTL Elaboration : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2613.953 ; gain = 824.934 ; free physical = 101517 ; free virtual = 112969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2619.953 ; gain = 830.871 ; free physical = 40815 ; free virtual = 76036
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2616.922 ; gain = 827.902 ; free physical = 101518 ; free virtual = 112969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2619.953 ; gain = 830.871 ; free physical = 40815 ; free virtual = 76036
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2616.922 ; gain = 827.902 ; free physical = 101518 ; free virtual = 112969
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2619.953 ; gain = 0.000 ; free physical = 40811 ; free virtual = 76032
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2616.922 ; gain = 0.000 ; free physical = 101510 ; free virtual = 112961
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -10466,26 +10470,26 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/custom_inst_cva6_with_reg_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2805.398 ; gain = 0.000 ; free physical = 40748 ; free virtual = 75970
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2801.367 ; gain = 0.000 ; free physical = 101455 ; free virtual = 112906
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.24 ; elapsed = 00:00:00.24 . Memory (MB): peak = 2805.434 ; gain = 0.000 ; free physical = 40748 ; free virtual = 75970
+Constraint Validation Runtime : Time (s): cpu = 00:00:04 ; elapsed = 00:00:00.8 . Memory (MB): peak = 2828.180 ; gain = 26.777 ; free physical = 101449 ; free virtual = 112900
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:08 ; elapsed = 00:01:05 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 40743 ; free virtual = 75964
+Finished Constraint Validation : Time (s): cpu = 00:01:00 ; elapsed = 00:00:54 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 101440 ; free virtual = 112892
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z045ffg900-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:08 ; elapsed = 00:01:05 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 40743 ; free virtual = 75964
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:00 ; elapsed = 00:00:54 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 101440 ; free virtual = 112892
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:08 ; elapsed = 00:01:05 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 40743 ; free virtual = 75964
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:00 ; elapsed = 00:00:54 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 101440 ; free virtual = 112892
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_q_reg' in module 'axi_atop_filter'
 INFO: [Synth 8-802] inferred FSM for state register 'w_state_q_reg' in module 'axi_atop_filter'
@@ -10579,7 +10583,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_q_reg' using encodin
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_q_reg' using encoding 'sequential' in module 'axi2mem'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:36 ; elapsed = 00:01:34 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 37559 ; free virtual = 72789
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:27 ; elapsed = 00:01:22 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 98261 ; free virtual = 109721
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -10589,10 +10593,9 @@ Detailed RTL Component Info :
 	   2 Input   65 Bit       Adders := 1     
 	   2 Input   64 Bit       Adders := 27    
 	   3 Input   64 Bit       Adders := 4     
-	   2 Input   20 Bit       Adders := 2     
-	   4 Input   20 Bit       Adders := 1     
-	   3 Input   18 Bit       Adders := 1     
 	   2 Input   16 Bit       Adders := 1     
+	   2 Input   11 Bit       Adders := 2     
+	   3 Input   10 Bit       Adders := 1     
 	   2 Input   10 Bit       Adders := 2     
 	   3 Input    9 Bit       Adders := 3     
 	   2 Input    9 Bit       Adders := 12    
@@ -10612,8 +10615,7 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input     65 Bit         XORs := 1     
 	   2 Input     64 Bit         XORs := 1     
-	   2 Input     15 Bit         XORs := 1     
-	   2 Input      8 Bit         XORs := 2     
+	   2 Input      8 Bit         XORs := 4     
 	   2 Input      1 Bit         XORs := 6     
 	   4 Input      1 Bit         XORs := 1     
 +---Registers : 
@@ -10628,20 +10630,21 @@ Detailed RTL Component Info :
 	               44 Bit    Registers := 3     
 	               32 Bit    Registers := 14    
 	               27 Bit    Registers := 1     
-	               20 Bit    Registers := 1     
-	               18 Bit    Registers := 4     
+	               18 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
 	               16 Bit    Registers := 4     
-	               12 Bit    Registers := 3     
-	               10 Bit    Registers := 2     
+	               12 Bit    Registers := 2     
+	               11 Bit    Registers := 2     
+	               10 Bit    Registers := 5     
 	                9 Bit    Registers := 7     
 	                8 Bit    Registers := 93    
 	                7 Bit    Registers := 3     
-	                6 Bit    Registers := 4     
+	                6 Bit    Registers := 3     
 	                5 Bit    Registers := 36    
 	                4 Bit    Registers := 29    
-	                3 Bit    Registers := 87    
+	                3 Bit    Registers := 86    
 	                2 Bit    Registers := 240   
-	                1 Bit    Registers := 432   
+	                1 Bit    Registers := 426   
 +---Multipliers : 
 	              65x65  Multipliers := 1     
 +---RAMs : 
@@ -10722,7 +10725,7 @@ Detailed RTL Component Info :
 	   7 Input    2 Bit        Muxes := 3     
 	   5 Input    2 Bit        Muxes := 3     
 	  19 Input    2 Bit        Muxes := 3     
-	   2 Input    1 Bit        Muxes := 3341  
+	   2 Input    1 Bit        Muxes := 3339  
 	   4 Input    1 Bit        Muxes := 62    
 	   5 Input    1 Bit        Muxes := 51    
 	   7 Input    1 Bit        Muxes := 21    
@@ -11229,26 +11232,37 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_fronten
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_frontend/i_instr_queue/\gen_instr_fifo[0].i_fifo_instr_data/gen_asic_queue.mem_q_reg[2][ex][1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_frontend/i_instr_queue/\gen_instr_fifo[0].i_fifo_instr_data/gen_asic_queue.mem_q_reg[1][ex][1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_frontend/i_instr_queue/\gen_instr_fifo[0].i_fifo_instr_data/gen_asic_queue.mem_q_reg[0][ex][1] )
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p_reg_reg' and it is trimmed from '44' to '20' bits. [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1.v:41]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/m_reg_reg' and it is trimmed from '43' to '20' bits. [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1.v:34]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/a_reg_reg' and it is trimmed from '25' to '20' bits. [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1.v:33]
-DSP Report: Generating DSP mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p_reg_reg, operation Mode is: (C:0xffffffffb580)+((A:0x4a8)'*B'')'.
-DSP Report: register mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p_reg_reg is absorbed into DSP mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p_reg_reg.
-DSP Report: register mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p_reg_reg is absorbed into DSP mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p_reg_reg.
-DSP Report: register mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/b_reg_reg is absorbed into DSP mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p_reg_reg.
-DSP Report: register mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p_reg_reg is absorbed into DSP mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p_reg_reg.
-DSP Report: register mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/m_reg_reg is absorbed into DSP mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p_reg_reg.
-DSP Report: operator mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p is absorbed into DSP mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p_reg_reg.
-DSP Report: operator mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/m is absorbed into DSP mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p_reg_reg.
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/p_reg_reg' and it is trimmed from '44' to '17' bits. [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1.v:41]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/m_reg_reg' and it is trimmed from '43' to '17' bits. [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1.v:34]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/a_reg_reg' and it is trimmed from '25' to '17' bits. [/home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1.v:33]
+DSP Report: Generating DSP mul_8s_10ns_18_1_1_U3/tmp_product, operation Mode is: (A:0x1c7)*B''.
+DSP Report: register xor_ln71_reg_648_reg is absorbed into DSP mul_8s_10ns_18_1_1_U3/tmp_product.
+DSP Report: register xor_ln71_reg_648_pp0_iter2_reg_reg is absorbed into DSP mul_8s_10ns_18_1_1_U3/tmp_product.
+DSP Report: operator mul_8s_10ns_18_1_1_U3/tmp_product is absorbed into DSP mul_8s_10ns_18_1_1_U3/tmp_product.
+DSP Report: Generating DSP mul_8s_10ns_18_1_1_U2/tmp_product, operation Mode is: (A:0x168)*B2.
+DSP Report: register xor_ln70_reg_664_reg is absorbed into DSP mul_8s_10ns_18_1_1_U2/tmp_product.
+DSP Report: operator mul_8s_10ns_18_1_1_U2/tmp_product is absorbed into DSP mul_8s_10ns_18_1_1_U2/tmp_product.
+DSP Report: Generating DSP mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/m_reg_reg, operation Mode is: ((A:0x58)'*B2)'.
+DSP Report: register mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/a_reg_reg is absorbed into DSP mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/m_reg_reg.
+DSP Report: register mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/b_reg_reg is absorbed into DSP mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/m_reg_reg.
+DSP Report: register mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/m_reg_reg is absorbed into DSP mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/m_reg_reg.
+DSP Report: operator mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/m is absorbed into DSP mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/m_reg_reg.
+DSP Report: Generating DSP mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/p_reg_reg, operation Mode is: (PCIN+((A:0xb8)*B)')'.
+DSP Report: register mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/p_reg_reg is absorbed into DSP mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/p_reg_reg.
+DSP Report: register mul_ln71_1_reg_669_reg is absorbed into DSP mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/p_reg_reg.
+DSP Report: operator mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/p is absorbed into DSP mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/p_reg_reg.
+DSP Report: operator mul_8s_9ns_17_1_1_U1/tmp_product is absorbed into DSP mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/p_reg_reg.
 INFO: [Synth 8-3971] The signal "cvxif_example_coprocessor/vec_regfile_gen.ariane_vecram/sram_reg" was recognized as a true dual port RAM template.
 INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3971] The signal "cvxif_example_coprocessor/vec_regfile_gen.ariane_vecram/sram_reg" was recognized as a true dual port RAM template.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63 /\sub_ln74_reg_701_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63 /\sub_ln78_reg_717_reg[2] )
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-5544] ROM "i_atop_filter/" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:39 ; elapsed = 00:03:48 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 34293 ; free virtual = 69597
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:24 ; elapsed = 00:03:33 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 95063 ; free virtual = 106528
 ---------------------------------------------------------------------------------
+ Sort Area is cvxif_example_coprocessor mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/m_reg_reg_4 : 0 0 : 1051 1281 : Used 1 time 100
+ Sort Area is cvxif_example_coprocessor mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/m_reg_reg_4 : 0 1 : 230 1281 : Used 1 time 100
  Sort Area is cva6__GCB0 i_multiplier/mult_result_d_0 : 0 0 : 2701 10833 : Used 1 time 0
  Sort Area is cva6__GCB0 i_multiplier/mult_result_d_0 : 0 1 : 2710 10833 : Used 1 time 0
  Sort Area is cva6__GCB0 i_multiplier/mult_result_d_0 : 0 2 : 2712 10833 : Used 1 time 0
@@ -11265,7 +11279,8 @@ Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:39 ; elaps
  Sort Area is cva6__GCB0 i_multiplier/mult_result_d_8 : 0 1 : 1999 7646 : Used 1 time 0
  Sort Area is cva6__GCB0 i_multiplier/mult_result_d_8 : 0 2 : 2011 7646 : Used 1 time 0
  Sort Area is cva6__GCB0 i_multiplier/mult_result_d_8 : 0 3 : 1641 7646 : Used 1 time 0
- Sort Area is cvxif_example_coprocessor mac_muladd_8ns_11ns_16s_20_4_1_U1/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1_DSP48_0_U/p_reg_reg_0 : 0 0 : 1415 1415 : Used 1 time 0
+ Sort Area is cvxif_example_coprocessor mul_8s_10ns_18_1_1_U3/tmp_product_0 : 0 0 : 252 252 : Used 1 time 0
+ Sort Area is cvxif_example_coprocessor mul_8s_10ns_18_1_1_U2/tmp_product_2 : 0 0 : 184 184 : Used 1 time 0
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
@@ -11316,27 +11331,30 @@ Block RAM: Preliminary Mapping Report (see note below)
 Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
 
 DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
-+---------------------------------------------------------------------+--------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name                                                          | DSP Mapping                          | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+---------------------------------------------------------------------+--------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|mult                                                                 | A*B                                  | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | (PCIN>>17)+A*B                       | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | PCIN+A*B                             | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | (PCIN>>17)+A*B                       | 14     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | A*B                                  | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | PCIN+A*B                             | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | (PCIN>>17)+A*B                       | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | PCIN+A*B                             | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | A*B                                  | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | PCIN+A*B                             | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | (PCIN>>17)+A*B                       | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | PCIN+A*B                             | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | A*B                                  | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | (PCIN>>17)+A*B                       | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | PCIN+A*B                             | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mult                                                                 | (PCIN>>17)+A*B                       | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1 | (C:0xffffffffb580)+((A:0x4a8)'*B'')' | 9      | 18     | 16     | -      | 20     | 2    | 1    | 0    | -    | -     | 1    | 1    | 
-+---------------------------------------------------------------------+--------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++---------------------------------------------------------------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name                                                          | DSP Mapping           | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++---------------------------------------------------------------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|mult                                                                 | A*B                   | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | (PCIN>>17)+A*B        | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | PCIN+A*B              | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | (PCIN>>17)+A*B        | 14     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | A*B                   | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | PCIN+A*B              | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | (PCIN>>17)+A*B        | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | PCIN+A*B              | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | A*B                   | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | PCIN+A*B              | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | (PCIN>>17)+A*B        | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | PCIN+A*B              | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | A*B                   | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | (PCIN>>17)+A*B        | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | PCIN+A*B              | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mult                                                                 | (PCIN>>17)+A*B        | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1 | (A:0x1c7)*B''         | 8      | 10     | -      | -      | 18     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1 | (A:0x168)*B2          | 8      | 10     | -      | -      | 18     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0           | ((A:0x58)'*B2)'       | 9      | 17     | -      | -      | 26     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0           | (PCIN+((A:0xb8)*B)')' | 9      | 8      | -      | -      | 17     | 0    | 0    | -    | -    | -     | 1    | 1    | 
++---------------------------------------------------------------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
@@ -11346,13 +11364,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:51 ; elapsed = 00:04:01 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 34234 ; free virtual = 69584
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:35 ; elapsed = 00:03:44 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 95044 ; free virtual = 106509
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:04:09 ; elapsed = 00:04:20 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 34225 ; free virtual = 69575
+Finished Timing Optimization : Time (s): cpu = 00:03:52 ; elapsed = 00:04:02 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 95037 ; free virtual = 106502
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -11433,28 +11451,28 @@ INFO: [Synth 8-7052] The timing for the instance i_ariane/i_cva6/gen_cache_wt.i_
 INFO: [Synth 8-7052] The timing for the instance i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[5].i_tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[6].i_tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[7].i_tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_2/i_cva6_icache/gen_sram[0].tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_2/i_cva6_icache/gen_sram[0].data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_2/i_cva6_icache/gen_sram[0].data_sram/gen_cut[1].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_2/i_cva6_icache/gen_sram[1].tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_2/i_cva6_icache/gen_sram[1].data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_2/i_cva6_icache/gen_sram[1].data_sram/gen_cut[1].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_2/i_cva6_icache/gen_sram[2].tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_2/i_cva6_icache/gen_sram[2].data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_2/i_cva6_icache/gen_sram[2].data_sram/gen_cut[1].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_2/i_cva6_icache/gen_sram[3].tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_2/i_cva6_icache/gen_sram[3].data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_2/i_cva6_icache/gen_sram[3].data_sram/gen_cut[1].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_3_0/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_3_0/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_3_0/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_3_0/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_3_0/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_3_0/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_3_0/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_3_0/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_3_0/i_bootrom/addr_q_reg_rep (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_3_0/i_bootrom/addr_q_reg_rep (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_1/i_cva6_icache/gen_sram[0].tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_1/i_cva6_icache/gen_sram[0].data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_1/i_cva6_icache/gen_sram[0].data_sram/gen_cut[1].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_1/i_cva6_icache/gen_sram[1].tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_1/i_cva6_icache/gen_sram[1].data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_1/i_cva6_icache/gen_sram[1].data_sram/gen_cut[1].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_1/i_cva6_icache/gen_sram[2].tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_1/i_cva6_icache/gen_sram[2].data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_1/i_cva6_icache/gen_sram[2].data_sram/gen_cut[1].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_1/i_cva6_icache/gen_sram[3].tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_1/i_cva6_icache/gen_sram[3].data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_3_1/i_cva6_icache/gen_sram[3].data_sram/gen_cut[1].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_8/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_8/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_8/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_8/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_8/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_8/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_8/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_8/i_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_8/i_bootrom/addr_q_reg_rep (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_8/i_bootrom/addr_q_reg_rep (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-11322] No global retiming is needed without any clock constraint
 INFO: [Synth 8-11322] No global retiming is needed without any clock constraint
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/sofan/CVA6-ckf/cva6/core/multiplier.sv:159]
@@ -11465,7 +11483,7 @@ INFO: [Synth 8-11322] No global retiming is needed without any clock constraint
 INFO: [Synth 8-11322] No global retiming is needed without any clock constraint
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:04:19 ; elapsed = 00:04:37 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 34145 ; free virtual = 69504
+Finished Technology Mapping : Time (s): cpu = 00:04:02 ; elapsed = 00:04:19 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 94855 ; free virtual = 106330
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -11537,37 +11555,37 @@ INFO: [Synth 8-4649] Removing BlackBox instance \i_ariane/i_cva6/i_frontend/i_in
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:04:32 ; elapsed = 00:04:51 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 34104 ; free virtual = 69502
+Finished IO Insertion : Time (s): cpu = 00:04:13 ; elapsed = 00:04:30 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 94847 ; free virtual = 106322
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:04:33 ; elapsed = 00:04:51 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 34104 ; free virtual = 69502
+Finished Renaming Generated Instances : Time (s): cpu = 00:04:13 ; elapsed = 00:04:30 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 94847 ; free virtual = 106322
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:37 ; elapsed = 00:04:55 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 34100 ; free virtual = 69498
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:17 ; elapsed = 00:04:35 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 94845 ; free virtual = 106320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:04:38 ; elapsed = 00:04:56 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 34099 ; free virtual = 69497
+Finished Renaming Generated Ports : Time (s): cpu = 00:04:18 ; elapsed = 00:04:35 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 94845 ; free virtual = 106320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:04:40 ; elapsed = 00:04:58 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 34099 ; free virtual = 69497
+Finished Handling Custom Attributes : Time (s): cpu = 00:04:20 ; elapsed = 00:04:37 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 94845 ; free virtual = 106320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:04:40 ; elapsed = 00:04:58 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 34099 ; free virtual = 69497
+Finished Renaming Generated Nets : Time (s): cpu = 00:04:20 ; elapsed = 00:04:38 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 94845 ; free virtual = 106320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -11577,10 +11595,9 @@ Static Shift Register Report:
 +--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 |Module Name               | RTL Name                                                                                                                                                                      | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
 +--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|custom_inst_cva6_with_reg | i_ariane/gen_example_coprocessor.i_cvxif_coprocessor/blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63/tmp_2_reg_630_pp0_iter4_reg_reg[7]      | 4      | 8     | NO           | NO                 | YES               | 8      | 0       | 
-|custom_inst_cva6_with_reg | i_ariane/gen_example_coprocessor.i_cvxif_coprocessor/blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63/trunc_ln74_reg_635_pp0_iter4_reg_reg[2] | 4      | 3     | NO           | NO                 | YES               | 3      | 0       | 
-|custom_inst_cva6_with_reg | i_ariane/gen_example_coprocessor.i_cvxif_coprocessor/blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63/tmp_reg_624_pp0_iter3_reg_reg[7]        | 3      | 8     | NO           | NO                 | YES               | 8      | 0       | 
-|custom_inst_cva6_with_reg | i_ariane/gen_example_coprocessor.i_cvxif_coprocessor/blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63/ap_loop_exit_ready_pp0_iter6_reg_reg    | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|custom_inst_cva6_with_reg | i_ariane/gen_example_coprocessor.i_cvxif_coprocessor/blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63/Y_reg_637_pp0_iter3_reg_reg[7]          | 3      | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|custom_inst_cva6_with_reg | i_ariane/gen_example_coprocessor.i_cvxif_coprocessor/blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63/trunc_ln78_reg_658_pp0_iter3_reg_reg[2] | 3      | 3     | NO           | NO                 | YES               | 3      | 0       | 
+|custom_inst_cva6_with_reg | i_ariane/gen_example_coprocessor.i_cvxif_coprocessor/blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63/ap_loop_exit_ready_pp0_iter5_reg_reg    | 4      | 1     | NO           | NO                 | YES               | 1      | 0       | 
 +--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 
 ---------------------------------------------------------------------------------
@@ -11594,7 +11611,10 @@ DSP Final Report (the ' indicates corresponding REG is set)
 +---------------------------------------------------------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name                                                          | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +---------------------------------------------------------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1 | (C+(A''*B)')'   | 8      | 11     | 48     | -      | 20     | 2    | 0    | 0    | -    | -     | 1    | 1    | 
+|t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0           | (A'*B)'         | 30     | 7      | -      | -      | 0      | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0           | (PCIN+(A*B)')'  | 8      | 18     | -      | -      | 17     | 0    | 0    | -    | -    | -     | 1    | 1    | 
+|t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1 | (A'*B)'         | 30     | 9      | -      | -      | 18     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1 | (A''*B)'        | 30     | 9      | -      | -      | 18     | 2    | 0    | -    | -    | -     | 0    | 1    | 
 |mult                                                                 | A*B             | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |mult                                                                 | PCIN>>17+A*B    | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |mult                                                                 | PCIN+A*B        | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
@@ -11624,50 +11644,46 @@ Report Cell Usage:
 +------+---------+------+
 |      |Cell     |Count |
 +------+---------+------+
-|1     |BUFG     |     1|
-|2     |CARRY4   |   806|
-|3     |DSP48E1  |    17|
-|6     |LUT1     |    37|
-|7     |LUT2     |  2007|
-|8     |LUT3     |  4092|
-|9     |LUT4     |  2990|
-|10    |LUT5     |  7493|
-|11    |LUT6     | 12227|
-|12    |MUXF7    |  1879|
-|13    |MUXF8    |   136|
-|14    |RAMB36E1 |    47|
-|18    |SRL16E   |    20|
-|19    |FDCE     | 13498|
-|20    |FDPE     |    34|
-|21    |FDRE     |  3188|
-|22    |IBUF     |   333|
-|23    |OBUF     |   273|
+|1     |CARRY4   |   798|
+|2     |DSP48E1  |    20|
+|8     |LUT1     |    31|
+|9     |LUT2     |  1997|
+|10    |LUT3     |  4088|
+|11    |LUT4     |  3503|
+|12    |LUT5     |  7352|
+|13    |LUT6     | 12194|
+|14    |MUXF7    |  1879|
+|15    |MUXF8    |   136|
+|16    |RAMB36E1 |    47|
+|20    |SRL16E   |    12|
+|21    |FDCE     | 13497|
+|22    |FDPE     |    34|
+|23    |FDRE     |  3137|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:04:40 ; elapsed = 00:04:58 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 34099 ; free virtual = 69497
+Finished Writing Synthesis Report : Time (s): cpu = 00:04:20 ; elapsed = 00:04:38 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 94845 ; free virtual = 106319
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 703 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:04:19 ; elapsed = 00:04:39 . Memory (MB): peak = 2805.434 ; gain = 830.871 ; free physical = 40793 ; free virtual = 76192
-Synthesis Optimization Complete : Time (s): cpu = 00:04:45 ; elapsed = 00:05:01 . Memory (MB): peak = 2805.434 ; gain = 1016.352 ; free physical = 40809 ; free virtual = 76193
+Synthesis Optimization Runtime : Time (s): cpu = 00:04:00 ; elapsed = 00:04:22 . Memory (MB): peak = 2828.180 ; gain = 827.902 ; free physical = 101662 ; free virtual = 113137
+Synthesis Optimization Complete : Time (s): cpu = 00:04:25 ; elapsed = 00:04:40 . Memory (MB): peak = 2828.180 ; gain = 1039.160 ; free physical = 101663 ; free virtual = 113124
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.84 ; elapsed = 00:00:00.84 . Memory (MB): peak = 2805.434 ; gain = 0.000 ; free physical = 40807 ; free virtual = 76192
-INFO: [Netlist 29-17] Analyzing 2885 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.67 ; elapsed = 00:00:00.67 . Memory (MB): peak = 2828.180 ; gain = 0.000 ; free physical = 101664 ; free virtual = 113124
+INFO: [Netlist 29-17] Analyzing 2880 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2829.410 ; gain = 0.000 ; free physical = 40806 ; free virtual = 76190
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2852.191 ; gain = 0.000 ; free physical = 101663 ; free virtual = 113123
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: d6798e8c
+Synth Design complete | Checksum: 9563cf9b
 INFO: [Common 17-83] Releasing license: Synthesis
-639 Infos, 421 Warnings, 0 Critical Warnings and 0 Errors encountered.
+639 Infos, 415 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:05:10 ; elapsed = 00:05:26 . Memory (MB): peak = 2829.445 ; gain = 1465.852 ; free physical = 40806 ; free virtual = 76190
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 8896.990; main = 1937.100; forked = 7033.420
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 13919.875; main = 2829.414; forked = 11138.484
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.28 ; elapsed = 00:00:00.1 . Memory (MB): peak = 2853.422 ; gain = 0.000 ; free physical = 40805 ; free virtual = 76193
+synth_design: Time (s): cpu = 00:04:44 ; elapsed = 00:04:59 . Memory (MB): peak = 2852.227 ; gain = 1488.664 ; free physical = 101663 ; free virtual = 113123
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 8956.843; main = 1986.125; forked = 7071.357
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 13940.230; main = 2852.195; forked = 11136.059
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2876.203 ; gain = 0.000 ; free physical = 101663 ; free virtual = 113126
 INFO: [Common 17-1381] The checkpoint '/home/sofan/CVA6-ckf/cva6/corev_apu/fpga/ariane.runs/synth_1/custom_inst_cva6_with_reg.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:14 ; elapsed = 00:00:12 . Memory (MB): peak = 2853.422 ; gain = 23.977 ; free physical = 40766 ; free virtual = 76187
 INFO: [runtcl-4] Executing : report_utilization -file custom_inst_cva6_with_reg_utilization_synth.rpt -pb custom_inst_cva6_with_reg_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Jun 25 16:03:58 2024...
+INFO: [Common 17-206] Exiting Vivado at Tue Jul  2 13:37:11 2024...

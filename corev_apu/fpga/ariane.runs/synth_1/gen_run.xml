@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z045ffg900-2" LaunchTime="1719302269">
+<GenRun Id="synth_1" LaunchPart="xc7z045ffg900-2" LaunchTime="1719898302">
   <File Type="VDS-TIMING-PB" Name="custom_inst_cva6_with_reg_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="custom_inst_cva6_with_reg_timing_summary_synth.rpt"/>
   <File Type="RDS-RDS" Name="custom_inst_cva6_with_reg.vds"/>
@@ -1273,7 +1273,21 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1.v">
+    <File Path="$PPRDIR/../../core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1.v">
+      <FileInfo SFType="SVerilog">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mul_8s_10ns_18_1_1.v">
+      <FileInfo SFType="SVerilog">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mul_8s_9ns_17_1_1.v">
       <FileInfo SFType="SVerilog">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -2251,6 +2265,7 @@
     </StratHandle>
     <Step Id="synth_design">
       <Option Id="GlobalReTiming">1</Option>
+      <Option Id="MoreOptsStr"><![CDATA[-mode out_of_context]]></Option>
       <Option Id="ReTiming">1</Option>
     </Step>
   </Strategy>

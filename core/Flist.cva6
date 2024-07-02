@@ -80,7 +80,7 @@ ${CVA6_REPO_DIR}/core/cvxif_example/blackbox.sv
 // t64_CAG444toRGB888_k8_10MHz, vlen in = 3, vlen out = 3, only one in operator
 ${CVA6_REPO_DIR}/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_${FREQ}/t64_CAG444toRGB888_k8_flow_control_loop_pipe_sequential_init.v
 ${CVA6_REPO_DIR}/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_${FREQ}/t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1.v
-${CVA6_REPO_DIR}/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_${FREQ}/t64_CAG444toRGB888_k8_mac_muladd_8ns_7ns_17s_17_4_1.v
+${CVA6_REPO_DIR}/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_${FREQ}/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1.v
 ${CVA6_REPO_DIR}/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_${FREQ}/t64_CAG444toRGB888_k8.v
 ${CVA6_REPO_DIR}/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_${FREQ}/t64_CAG444toRGB888_k8_regslice_forward.v
 ${CVA6_REPO_DIR}/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_${FREQ}/t64_CAG444toRGB888_k8_mul_8s_10ns_18_1_1.v

@@ -88,6 +88,11 @@ synth_design -rtl -name rtl_1
 
 set_property STEPS.SYNTH_DESIGN.ARGS.RETIMING true [get_runs synth_1]
 
+# Enable this if you don't want to generate bitstream
+# if {$::env(BOARD) eq "zc706"} {
+#       set_property -name {STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS} -value {-mode out_of_context} -objects [get_runs synth_1]
+# }
+
 launch_runs synth_1
 wait_on_run synth_1
 open_run synth_1

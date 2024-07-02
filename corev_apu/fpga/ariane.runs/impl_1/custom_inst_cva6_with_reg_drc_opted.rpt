@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date         : Tue Jun 25 16:10:15 2024
+| Date         : Tue Jul  2 13:42:19 2024
 | Host         : sofanserver running 64-bit Ubuntu 22.04.4 LTS
 | Command      : report_drc -file custom_inst_cva6_with_reg_drc_opted.rpt -pb custom_inst_cva6_with_reg_drc_opted.pb -rpx custom_inst_cva6_with_reg_drc_opted.rpx
 | Design       : custom_inst_cva6_with_reg
@@ -25,41 +25,20 @@ Table of Contents
            Ruledeck: default
              Max violations: <unlimited>
              Violations found: 175
-+-----------+------------------+----------------------------+------------+
-| Rule      | Severity         | Description                | Violations |
-+-----------+------------------+----------------------------+------------+
-| NSTD-1    | Critical Warning | Unspecified I/O Standard   | 1          |
-| UCIO-1    | Critical Warning | Unconstrained Logical Port | 1          |
-| CHECK-3   | Warning          | Report rule limit reached  | 1          |
-| DPIP-1    | Warning          | Input pipelining           | 32         |
-| DPOP-1    | Warning          | PREG Output pipelining     | 6          |
-| DPOP-2    | Warning          | MREG Output pipelining     | 10         |
-| DPOR-1    | Warning          | Asynchronous load check    | 102        |
-| IOCNT-1   | Warning          | Number of IOs              | 1          |
-| REQP-1839 | Warning          | RAMB36 async control check | 20         |
-| ZPS7-1    | Warning          | PS7 block required         | 1          |
-+-----------+------------------+----------------------------+------------+
++-----------+----------+----------------------------+------------+
+| Rule      | Severity | Description                | Violations |
++-----------+----------+----------------------------+------------+
+| CHECK-3   | Warning  | Report rule limit reached  | 1          |
+| DPIP-1    | Warning  | Input pipelining           | 33         |
+| DPOP-1    | Warning  | PREG Output pipelining     | 6          |
+| DPOP-2    | Warning  | MREG Output pipelining     | 12         |
+| DPOR-1    | Warning  | Asynchronous load check    | 102        |
+| REQP-1839 | Warning  | RAMB36 async control check | 20         |
+| ZPS7-1    | Warning  | PS7 block required         | 1          |
++-----------+----------+----------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
-NSTD-1#1 Critical Warning
-Unspecified I/O Standard  
-606 out of 606 logical ports use I/O standard (IOSTANDARD) value 'DEFAULT', instead of a user assigned specific value. This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all I/O standards. This design will fail to generate a bitstream unless all logical ports have a user specified I/O standard value defined. To allow bitstream creation with unspecified I/O standard values (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks NSTD-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run. Problem ports: dst_height[31:0], dst_image_size[31:0], dst_offset_addr[31:0],
-dst_width[31:0], exit[31:0], m_axi_araddr[63:0], m_axi_arburst[1:0],
-m_axi_arid[3:0], m_axi_arlen[7:0], m_axi_arsize[2:0], m_axi_awaddr[63:0],
-m_axi_awburst[1:0], m_axi_awid[3:0], m_axi_awlen[7:0], m_axi_awsize[2:0]
- (the first 15 of 42 listed).
-Related violations: <none>
-
-UCIO-1#1 Critical Warning
-Unconstrained Logical Port  
-606 out of 606 logical ports have no user assigned specific location constraint (LOC). This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, signal integrity or in extreme cases cause damage to the device or the components to which it is connected. To correct this violation, specify all pin locations. This design will fail to generate a bitstream unless all logical ports have a user specified site LOC constraint defined.  To allow bitstream creation with unspecified pin locations (not recommended), use this command: set_property SEVERITY {Warning} [get_drc_checks UCIO-1].  NOTE: When using the Vivado Runs infrastructure (e.g. launch_runs Tcl command), add this command to a .tcl file and add that file as a pre-hook for write_bitstream step for the implementation run.  Problem ports: dst_height[31:0], dst_image_size[31:0], dst_offset_addr[31:0],
-dst_width[31:0], exit[31:0], m_axi_araddr[63:0], m_axi_arburst[1:0],
-m_axi_arid[3:0], m_axi_arlen[7:0], m_axi_arsize[2:0], m_axi_awaddr[63:0],
-m_axi_awburst[1:0], m_axi_awid[3:0], m_axi_awlen[7:0], m_axi_awsize[2:0]
- (the first 15 of 42 listed).
-Related violations: <none>
-
 CHECK-3#1 Warning
 Report rule limit reached  
 REQP-1839 rule limit reached: 20 violations have been found.
@@ -67,160 +46,165 @@ Related violations: <none>
 
 DPIP-1#1 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/gen_example_coprocessor.i_cvxif_coprocessor/blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63/mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/p_reg_reg input i_ariane/gen_example_coprocessor.i_cvxif_coprocessor/blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63/mac_muladd_8s_7ns_17s_17_4_1_U4/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1_DSP48_0_U/p_reg_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#2 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#3 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__0 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#4 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__0 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__0 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#5 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__1 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__0 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#6 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__1 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__1 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#7 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__10 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__10/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__1 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#8 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__10 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__10/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__10 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__10/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#9 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__11 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__11/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__10 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__10/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#10 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__11 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__11/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__11 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__11/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#11 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__12 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__12/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__11 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__11/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#12 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__12 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__12/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__12 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__12/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#13 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__13 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__13/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__12 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__12/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#14 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__13 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__13/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__13 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__13/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#15 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__14 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__14/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__13 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__13/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#16 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__14 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__14/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__14 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__14/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#17 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__2 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__14 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__14/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#18 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__2 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__2 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#19 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__3 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__2 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#20 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__3 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__3 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#21 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__4 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__4/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__3 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#22 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__4 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__4/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__4 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__4/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#23 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__5 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__5/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__4 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__4/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#24 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__5 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__5/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__5 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__5/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#25 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__6 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__6/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__5 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__5/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#26 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__6 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__6/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__6 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__6/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#27 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__7 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__7/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__6 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__6/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#28 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__7 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__7/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__7 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__7/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#29 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__8 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__8/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__7 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__7/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#30 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__8 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__8/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__8 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__8/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#31 Warning
 Input pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__9 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__9/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__8 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__8/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#32 Warning
+Input pipelining  
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__9 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__9/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#33 Warning
 Input pipelining  
 DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__9 input i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__9/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
@@ -257,50 +241,60 @@ Related violations: <none>
 
 DPOP-2#1 Warning
 MREG Output pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP i_ariane/gen_example_coprocessor.i_cvxif_coprocessor/blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63/mul_8s_10ns_18_1_1_U2/tmp_product multiplier stage i_ariane/gen_example_coprocessor.i_cvxif_coprocessor/blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63/mul_8s_10ns_18_1_1_U2/tmp_product/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#2 Warning
 MREG Output pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__1 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP i_ariane/gen_example_coprocessor.i_cvxif_coprocessor/blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63/mul_8s_10ns_18_1_1_U3/tmp_product multiplier stage i_ariane/gen_example_coprocessor.i_cvxif_coprocessor/blackbox/cag444torgb888/grp_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1_fu_63/mul_8s_10ns_18_1_1_U3/tmp_product/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#3 Warning
 MREG Output pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__10 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__10/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#4 Warning
 MREG Output pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__11 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__11/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__1 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#5 Warning
 MREG Output pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__13 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__13/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__10 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__10/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#6 Warning
 MREG Output pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__14 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__14/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__11 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__11/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#7 Warning
 MREG Output pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__2 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__13 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__13/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#8 Warning
 MREG Output pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__4 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__4/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__14 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__14/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#9 Warning
 MREG Output pipelining  
-DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__6 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__6/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__2 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
 
 DPOP-2#10 Warning
+MREG Output pipelining  
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__4 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__4/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#11 Warning
+MREG Output pipelining  
+DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__6 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__6/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#12 Warning
 MREG Output pipelining  
 DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__8 multiplier stage i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__8/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 Related violations: <none>
@@ -813,15 +807,6 @@ Related violations: <none>
 DPOR-1#102 Warning
 Asynchronous load check  
 DSP i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_d__8 output is connected to registers with an asynchronous reset (i_ariane/i_cva6/ex_stage_i/i_mult/i_multiplier/mult_result_q_reg[9]__4). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
-Related violations: <none>
-
-IOCNT-1#1 Warning
-Number of IOs  
-The design contains 606 unplaced I/O ports while the target device, xc7z045ffg900-2, has 362 remaining available user I/O pins. This DRC assumes that all ports which do not drive MGT pins should be placed on user I/O pins. To correct this issue:
-1. Ensure you are targeting the correct device and package. Select a larger device or different package if necessary.
-2. Check the top-level ports of the design to ensure the correct number of ports are specified.
-3. Consider design changes to reduce the number of user I/O pins needed.
-
 Related violations: <none>
 
 REQP-1839#1 Warning

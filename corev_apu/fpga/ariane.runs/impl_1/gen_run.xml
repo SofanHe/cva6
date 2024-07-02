@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z045ffg900-2" LaunchTime="1719302688">
+<GenRun Id="impl_1" LaunchPart="xc7z045ffg900-2" LaunchTime="1719898674">
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="custom_inst_cva6_with_reg_postroute_physopted.rqs"/>
@@ -1349,7 +1349,21 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1.v">
+    <File Path="$PPRDIR/../../core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1.v">
+      <FileInfo SFType="SVerilog">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mul_8s_10ns_18_1_1.v">
+      <FileInfo SFType="SVerilog">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mul_8s_9ns_17_1_1.v">
       <FileInfo SFType="SVerilog">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -2337,6 +2351,6 @@
       <Option Id="Directive">5</Option>
     </Step>
     <Step Id="post_route_phys_opt_design"/>
-    <Step Id="write_bitstream"/>
+    <Step Id="write_bitstream" PreStepTclHook="../../scripts/fix_error_write_bitstream.tcl"/>
   </Strategy>
 </GenRun>

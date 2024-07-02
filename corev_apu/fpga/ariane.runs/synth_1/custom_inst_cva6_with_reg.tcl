@@ -71,7 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1113659-sofanserver/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-29900-sofanserver/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-4480} -limit 1000
 set_msg_config -id {Synth 8-638} -limit 10000
@@ -286,7 +286,9 @@ read_verilog -library xil_defaultlib -sv {
   /home/sofan/CVA6-ckf/cva6/vendor/pulp-platform/common_cells/src/stream_register.sv
   /home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8.v
   /home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_flow_control_loop_pipe_sequential_init.v
-  /home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8ns_11ns_16s_20_4_1.v
+  /home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mac_muladd_8s_7ns_17s_17_4_1.v
+  /home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mul_8s_10ns_18_1_1.v
+  /home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_mul_8s_9ns_17_1_1.v
   /home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_regslice_forward.v
   /home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_CAG444toRGB888_k8_150MHz/t64_CAG444toRGB888_k8_t64_CAG444toRGB888_k8_Pipeline_VITIS_LOOP_50_1.v
   /home/sofan/CVA6-ckf/cva6/core/cvxif_example/cust_inst/t64_nv12toCAG444_k8_150MHz/t64_nv12toCAG444_k8.v
@@ -325,7 +327,7 @@ set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top custom_inst_cva6_with_reg -part xc7z045ffg900-2 -global_retiming on
+synth_design -top custom_inst_cva6_with_reg -part xc7z045ffg900-2 -global_retiming on -mode out_of_context
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
