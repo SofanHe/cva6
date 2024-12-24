@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
-| Date         : Tue Jul  2 13:42:19 2024
+| Date         : Tue Dec 24 17:22:34 2024
 | Host         : sofanserver running 64-bit Ubuntu 22.04.4 LTS
 | Command      : report_drc -file custom_inst_cva6_with_reg_drc_opted.rpt -pb custom_inst_cva6_with_reg_drc_opted.pb -rpx custom_inst_cva6_with_reg_drc_opted.rpx
 | Design       : custom_inst_cva6_with_reg
