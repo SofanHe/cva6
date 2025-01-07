@@ -23,10 +23,17 @@ all: $(mcs)
 $(mcs): $(bit)
 	$(VIVADO) $(VIVADOFLAGS) -source scripts/write_cfgmem.tcl -tclargs $@ $^
 
+ifeq ($(BOARD), zc706)
+$(bit): $(ips)
+	mkdir -p $(work-dir)
+	$(VIVADO) $(VIVADOFLAGS) -source scripts/run_dcp.tcl
+	cp ariane.runs/synth_1/custom_inst_cva6_with_reg.dcp ../../cva6.dcp
+else 
 $(bit): $(ips)
 	mkdir -p $(work-dir)
 	$(VIVADO) $(VIVADOFLAGS) -source scripts/run.tcl
 	cp ariane.runs/impl_1/ariane_xilinx* ./$(work-dir)
+endif
 
 $(ips): %.xci :
 	mkdir -p $(work-dir)
